@@ -1,0 +1,13 @@
+Kolaysayfam 0.38 programı, html sayfası hazırlamakta kullanılır. Linux Mint veya Ubuntu işletim sistemleri üzerinde gerekli programlar kurulu ise çalıştırılabilir.
+
+Python3 ile çalıştırılmalıdır. Python3'ün Gtk, re, os, gi, datetime paketleri sisteminizde kurulu olmalıdır. 
+Sisteminizde Glade programı da kurulu olmalıdır. 
+
+Program geliştirilme aşamasındaki sürümüdür.
+
+GNU Genel Kamu Lisansı Sürüm 3 ile lisanlandırılmıştır.
+Lisans şartlarına göz atmak için GenelKamuLisansı(GPLv3).html dosyasını inceleyebilirsiniz.
+
+Ayrıca bir debian paketi de oluşturulmuş olup, bağımlılık kontrolleri gibi bir takım eksiklikleri olmakla birlikte deneme amacıyla sisteminize kurup denedikten sonra isterseniz sisteminizden kaldırabilirsiniz. (kolaysayfam_0.38_all.deb)
+
+Programı çalıştırmak için sisteminizde kolaysayfam.py, kolaysayfam.glade aynı dizinde olmalıdır. kolaysayfam.py programı çalıştırılabilir yapılmalıdır. Bu şekilde çift tıklayarak terminalde çalıştır seçeneği ile ya da konsol üzerinden ./kolaysayfam.py komutu ile programı başlatabilirsiniz. 21102015_194009.ksa programın bilgi girilmiş bir dosyasıdır. (save dosyası) Programı çalıştırdıktan sonra menüden  Dosya-Aç seçeneği ile bu dosya veya daha sonra kendi hazırlayacağınız herhangi bir dosya seçilerek yüklenebilir. Yaptığınız değişiklikleri menüden Dosya-Kaydet seçeneği ile kayıt altına alabilirsiniz. Web sayfanızı tamamladıktan sonra "Gerekli bölümleri doldurdum, web sayfasını oluştur" butonu ile sayfanızı oluşturabilirsiniz. Koyduğunuz sayfa adı ile aynı dizine bir html dosyası oluşturulacaktır. Sayfa adı kısmı boş kalırsa dosya ismi .html olacağından bu bir gizli dosya olacaktır. Bildiğiniz üzere gnu/linux dağıtımlarında . ile başlayan dosyalar gizli dosyalardır.
