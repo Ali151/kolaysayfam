@@ -6,12 +6,13 @@
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">KolaySayfam</property>
-    <property name="version">0.45</property>
+    <property name="version">0.55</property>
+    <property name="copyright" translatable="yes">Yaşasın özgür yazılım dünyası</property>
     <property name="comments" translatable="yes">Web sitesi oluşturma programı
 Bilgileri girin ve sitenizi oluşturun</property>
+    <property name="license" translatable="yes">GPL 3.0 </property>
     <property name="authors">Ali AKSIN</property>
     <property name="logo_icon_name">help-about</property>
-    <property name="license_type">gpl-3-0</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
         <property name="can_focus">False</property>
@@ -62,6 +63,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="iptal2" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -75,6 +77,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="resimekle2" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -88,6 +91,18 @@ Bilgileri girin ve sitenizi oluşturun</property>
             <property name="fill">True</property>
             <property name="pack_type">end</property>
             <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label7">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Lütfen jpg uzantılı bir resim seçiniz</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -111,11 +126,10 @@ Bilgileri girin ve sitenizi oluşturun</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="adjustment">adjustment2</property>
-                <property name="numeric">True</property>
                 <property name="value">100</property>
               </object>
               <packing>
-                <property name="expand">False</property>
+                <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
@@ -124,24 +138,13 @@ Bilgileri girin ve sitenizi oluşturun</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label7">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Lütfen jpg uzantılı bir resim seçiniz</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">5</property>
           </packing>
         </child>
       </object>
     </child>
   </object>
+  <object class="GtkEntryCompletion" id="entrycompletion1"/>
   <object class="GtkFileChooserDialog" id="filechooserdialog1">
     <property name="can_focus">False</property>
     <property name="type">popup</property>
@@ -175,6 +178,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="dosyaac" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -210,8 +214,24 @@ Bilgileri girin ve sitenizi oluşturun</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-yes</property>
   </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-add</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-add</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-add</property>
+  </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Kolaysayfam 0.5</property>
     <property name="window_position">center-always</property>
     <child>
       <object class="GtkBox" id="box1">
@@ -257,6 +277,36 @@ Bilgileri girin ve sitenizi oluşturun</property>
                       </object>
                     </child>
                     <child>
+                      <object class="GtkImageMenuItem" id="imagemenuitem1">
+                        <property name="label">Resim Ekle</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="image">image2</property>
+                        <property name="use_stock">False</property>
+                        <signal name="button-press-event" handler="resimekleek" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="imagemenuitem4">
+                        <property name="label">Linkler</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="image">image3</property>
+                        <property name="use_stock">False</property>
+                        <signal name="button-press-event" handler="window3acek" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="imagemenuitem6">
+                        <property name="label">Diğer</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="image">image4</property>
+                        <property name="use_stock">False</property>
+                        <signal name="button-press-event" handler="window2acek" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
                       <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -288,7 +338,19 @@ Bilgileri girin ve sitenizi oluşturun</property>
                     <property name="can_focus">False</property>
                     <child>
                       <object class="GtkImageMenuItem" id="imagemenuitem10">
+                        <property name="label">gtk-help</property>
+                        <property name="name">menuitem10</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="button-press-event" handler="menu10" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="imagemenuitem7">
                         <property name="label">gtk-about</property>
+                        <property name="name">menuitem7</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
@@ -311,7 +373,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label">Kolaysayfam 0.4</property>
+            <property name="label">Kolaysayfam 0.5</property>
             <property name="justify">fill</property>
             <property name="ellipsize">middle</property>
             <property name="single_line_mode">True</property>
@@ -610,7 +672,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
                   <object class="GtkComboBoxText" id="comboboxtext3">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="active_id">17pt</property>
+                    <property name="active_id">10pt</property>
                     <items>
                       <item id="1pt" translatable="yes">1pt</item>
                       <item id="2pt" translatable="yes">2pt</item>
@@ -742,7 +804,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="width_request">450</property>
-                <property name="height_request">300</property>
+                <property name="height_request">350</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="shadow_type">in</property>
@@ -858,6 +920,20 @@ Bilgileri girin ve sitenizi oluşturun</property>
               </packing>
             </child>
             <child>
+              <object class="GtkButton" id="button13">
+                <property name="label" translatable="yes">Linkler</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="window3ac" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkButton" id="button9">
                 <property name="label" translatable="yes">DİĞER</property>
                 <property name="visible">True</property>
@@ -920,7 +996,7 @@ Bilgileri girin ve sitenizi oluşturun</property>
     <property name="type">popup</property>
     <property name="window_position">center-always</property>
     <property name="type_hint">dialog</property>
-    <property name="text" translatable="yes">Lütfen jpg uzantılı bir dosya seçiniz</property>
+    <property name="text" translatable="yes">Lütfen jpg,jpeg,gif veya png uzantılı bir resim seçiniz</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="messagedialog-vbox1">
         <property name="can_focus">False</property>
@@ -1040,6 +1116,123 @@ Bilgileri girin ve sitenizi oluşturun</property>
           </packing>
         </child>
         <child>
+          <object class="GtkBox" id="box15">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label10">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Resim1 Alt :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry8">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box13">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkButton" id="button8">
+                <property name="label" translatable="yes">İPTAL</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="xalign">0.49000000953674316</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button4">
+                <property name="label" translatable="yes">KAYDET</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="xalign">0.50999999046325684</property>
+                <property name="yalign">0.50999999046325684</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box16">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label11">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Resim1 Title :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry9">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkBox" id="box12">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -1085,23 +1278,30 @@ Bilgileri girin ve sitenizi oluşturun</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">4</property>
           </packing>
         </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="window3">
+    <property name="can_focus">False</property>
+    <property name="window_position">center-always</property>
+    <child>
+      <object class="GtkBox" id="box17">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkBox" id="box13">
+          <object class="GtkBox" id="box18">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="button8">
-                <property name="label" translatable="yes">İPTAL</property>
+              <object class="GtkLabel" id="label12">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">center</property>
-                <property name="xalign">0.49000000953674316</property>
-                <signal name="clicked" handler="iptal" swapped="no"/>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Ana Sayfa :</property>
+                <property name="width_chars">21</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1110,7 +1310,155 @@ Bilgileri girin ve sitenizi oluşturun</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button4">
+              <object class="GtkEntry" id="entry10">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box19">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label13">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Hakkımızda :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry11">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box21">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label14">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Satın Al :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry12">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box22">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label15">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Menu1  :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry13">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="placeholder_text" translatable="yes">Ana Sayfa</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box20">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkButton" id="button14">
+                <property name="label" translatable="yes">İPTAL</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="xalign">0.49000000953674316</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button15">
                 <property name="label" translatable="yes">KAYDET</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1131,7 +1479,81 @@ Bilgileri girin ve sitenizi oluşturun</property>
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="pack_type">end</property>
-            <property name="position">3</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box23">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label16">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Menu2  :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry14">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="placeholder_text" translatable="yes">Hakkımızda</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box24">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label17">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Menu3  :</property>
+                <property name="width_chars">21</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry15">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="placeholder_text" translatable="yes">Satın Al</property>
+                <property name="input_purpose">digits</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">6</property>
           </packing>
         </child>
       </object>
